@@ -9,7 +9,30 @@ function User(e,p,fn,ln,ag,ad,pn,py,c){
     this.payment = py;
     this.color = c;
 }
-
+function validation(user){
+    let valid = true;
+    if(user.email === ''){
+        valid = false;
+        $("#txtEmail").addClass("input-alert-error");
+    }
+    if(user.password === ''){
+        valid = false;
+        $("#txtPassword").addClass("input-alert-error");
+    }
+    if(user.firstName === ''){
+        valid = false;
+        $("#txtFirstName").addClass("input-alert-error");
+    }
+    if(user.lastName === ''){
+        valid = false;
+        $("#txtLastName").addClass("input-alert-error");
+    }
+    if(user.payment === null){
+        valid = false;
+        $("#selPayment").addClass("input-alert-error");
+    }
+    return valid;
+}
 function register(){
     let inputEmail = $("#txtEmail").val();
     let inputPassword = $("#txtPassword").val();
@@ -21,11 +44,15 @@ function register(){
     let inputPayment = $("#selPayment").val();
     let inputColor = $("#selColor").val();
     let newUser = new User(inputEmail,inputPassword,inputFirstName,inputLastName,inputAge,inputAddress,inputPhoneNumber,inputPayment,inputColor);
-    console.log(newUser);
-    clearForm();
+    if(validation(newUser)){
+        console.log(newUser);
+        clearForm();
+        saveUser(newUser);
+    }
 }
 function clearForm(){
     $("input").val('');
+    $("select").val('');
 }
 function init(){
     $("#btnAdd").click(register);
