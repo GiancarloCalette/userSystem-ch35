@@ -6,12 +6,10 @@ function saveUser(user){
 }
 function readUsers(){
     let users = localStorage.getItem("users");
-    console.log(users);
     if(!users){
         return [];
     }else{
         let listUsers = JSON.parse(users);
-        console.log(listUsers);
         return listUsers;
     }
 }

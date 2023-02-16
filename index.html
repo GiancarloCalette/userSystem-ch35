@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles/mystyle.css">
     <title>User system</title>
   </head>
   <body>
@@ -28,17 +32,36 @@
               <a class="nav-link active" aria-current="page" href="index.html"
                 >Home</a
               >
+            </li>
+
             <li class="nav-item">
               <a class="nav-link" href="register.html">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="users.html">Users</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <header>
-        <h1>My awesome users registration system</h1>
+      <h1>My awesome users registration system</h1>
     </header>
-    <main></main>
+    <main>
+      <div id="alert-error" class="input-alert-error hide">Invalid credentials!</div>
+      <div>
+        <input
+          type="text"
+          id="txtUserName"
+          placeholder="Enter your user name"
+        />
+        <input type="text" id="txtPassword" placeholder="Enter your password" />
+        <button onclick="login();">Login</button>
+      </div>
+    </main>
     <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/storeManager.js"></script>
   </body>
 </html>

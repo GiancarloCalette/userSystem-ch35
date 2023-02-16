@@ -33,6 +33,15 @@ function validation(user){
     }
     return valid;
 }
+function validatePass(){
+    let inputPassword = $("#txtPassword");
+    let password = inputPassword.val();
+    if(password.length<4){
+        inputPassword.css("background-color","red");
+    }else{
+        inputPassword.css("background-color","green");
+    }
+}
 function register(){
     let inputEmail = $("#txtEmail").val();
     let inputPassword = $("#txtPassword").val();
@@ -56,5 +65,6 @@ function clearForm(){
 }
 function init(){
     $("#btnAdd").click(register);
+    $("#txtPassword").keyup(validatePass);
 }
 window.onload=init;
